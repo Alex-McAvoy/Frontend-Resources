@@ -1,0 +1,62 @@
+{
+    /* 配置说明
+    * include: 指定哪些ts文件需要被编译
+    * exclude: 排除哪些ts文件不需要被编译，一般不写
+    *          具默认值 ["node_modules","bower_components","jspm_packages"]
+    * extends: 定义被继承的配置文件，会自动包含相应目录下配置文件中的信息
+    * files: 指定被编译文件列表，一般在需要编译的文件少时使用
+    * compilerOptions:
+    * - 项目选项
+    *  - target: 设置ts编译的目标版本，默认ES3
+    *  - module: 指定要使用的模块化规范，默认CommonJS
+    *  - lib: 指定项目要使用的库（宿主环境），默认["ES6","DOM"]
+    *  - outDir: 指定编译后的文件目录，默认为编译前的文件目录
+    *  - outFile: 将所有的文件编译为一个js文件，此时module仅支持amd和system
+    *  - rootDir: 指定源码根目录，默认情况下编译后会以最长的公共目录为根目录
+    * - 编译选项
+    *  - sourceMap: 是否生成sourceMap，默认为false
+    *  - allowJs: 是否对js文件进行编译，默认为false
+    *  - checkJs: 是否对js文件进行语法检查，默认为false
+    *  - removeComments: 是否移除注释，默认为false
+    *  - noEmit: 是否生成最终的编译文件，用于检查ts文件是否有错，一般不使用，默认为false
+    *  - noEmitOnError: 当ts文件有错误时，是否生成最终的编译文件，默认为false
+    * - 严格检查 
+    *  - strict: 所有严格检查的总开关，启用后相当于开启所有严格检查下述配置项无需再设置，
+                 默认为false，建议设为true
+    *  - alwaysStrict: 编译后的文件是否使用严格模式，默认为false
+    *  - noImplicitAny: 是否禁止隐式的any类型，默认为true
+    *  - noImplicitThis: 是否禁止类型不明确的this，默认为true
+    *  - strictNullChecks: 是否严格检查空值，默认为true
+    *  - strictFunctionTypes: 是否严格检查函数类型，默认为true
+    *  - strictPropertyInitialization: 是否严格检查属性初始化，默认为false
+    *  - strictBindCallApply: 是否严格检查bind、call、apply的参数列表，默认为false
+    */
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ES6",
+        "lib": [
+            "ES6",
+            "DOM"
+        ],
+        // "outDir": "./build",
+        // "rootDir": "./src",
+        // "outFile": "./build/app.js",
+        // "sourceMap": false,
+        // "allowJs": false,
+        // "checkJs": false,
+        // "removeComments": false,
+        // "noEmit": false,
+        // "noEmitOnError": false,
+        "strict": true,
+        // "alwaysStrict": false,
+        // "noImplicitAny": true,
+        // "noImplicitThis": true,
+        // "strictNullChecks": true,
+        // "strictFunctionTypes": true,
+        // "strictPropertyInitialization": false,
+        // "strictBindCallApply": false
+    },
+}
