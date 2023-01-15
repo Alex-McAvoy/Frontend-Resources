@@ -1,15 +1,14 @@
-const {
-	resolve
-} = require("path");
+const { resolve } = require("path");
 
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const EslintWebpackPlugin = require("eslint-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const EslintWebpackPlugin = require('eslint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 //设置NodeJS环境变量，默认是生产环境
-// process.env.NODE_ENV = "development";
+//process.env.NODE_ENV = "development";
 
 const commonCssLoader = [ //复用loader
 	MiniCssExtractPlugin.loader, //取代style-loader，提取js中的css成单独文件
@@ -114,7 +113,7 @@ module.exports = {
 			template: resolve(__dirname, "src/index.html")
 		}),
 		new MiniCssExtractPlugin({ //将js中的css拆分为文件
-			filename: 'css/built.[contenthash:10].min.css' // 对输出的css文件进行重命名
+			filename: 'css/built.[contenthash:10].min.css' //对输出的css文件进行重命名
 		}),
 		new CssMinimizerPlugin(), //压缩css
 		/** 对js进行语法检查
@@ -123,11 +122,12 @@ module.exports = {
 		 *		"extends": "airbnb-base"
 		 *	}
 		 */
-		new EslintWebpackPlugin({
+		new EslintWebpackPlugin({ //Eslint
 			extensions: "js", //检查的文件类型
 			exclude: "/node_modules/", //排除第三方库
 			fix: true //开启自动修复
-		})
+		}),
+		new CleanWebpackPlugin() //每次构建都会先清除上次构建文件
 	],
 	/** 代码分割
 	 * 1. 将js中使用的node_modules中代码单独打包成一个chunk输出

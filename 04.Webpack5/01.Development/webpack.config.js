@@ -1,9 +1,10 @@
-/* 
-	npx webpack-dev-server
+/*  
+	启动开发服务器：npx webpack-dev-server
 */
 const { resolve } = require("path");
 
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 //设置NodeJS环境变量，默认是生产环境
 // process.env.NODE_ENV = "development";
@@ -64,7 +65,8 @@ module.exports = {
 	plugins: [ //插件	
 		new HtmlWebpackPlugin({ //复制html文件，并自动引入打包输出后的所有资源
 			template: resolve(__dirname, "src/index.html")
-		})
+		}),
+		new CleanWebpackPlugin() //每次构建都会先清除上次构建文件
 	],
 	mode: "development", //开发模式
 	/** 开发服务器
