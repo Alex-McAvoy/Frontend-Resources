@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 const add = (x, y) => x + y;
 
