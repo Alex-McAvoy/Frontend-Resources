@@ -116,12 +116,6 @@ module.exports = {
             "filename": "css/built.[contenthash:10].min.css" //对输出的css文件进行重命名
         }),
         new CssMinimizerPlugin(), //压缩css
-        /** 对js进行语法检查
-         * 采用airbnb规则，需在package.json中设置eslintConfig
-         * "eslintConfig": {
-         *     "extends": "airbnb-base"
-         * }
-         */
         new EslintWebpackPlugin({ //Eslint
             "extensions": "js", //检查的文件类型
             "exclude": "/node_modules/", //排除第三方库
