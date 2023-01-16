@@ -22,7 +22,7 @@
     *  - noEmitOnError: 当ts文件有错误时，是否生成最终的编译文件，默认为false
     * - 严格检查 
     *  - strict: 所有严格检查的总开关，启用后相当于开启所有严格检查下述配置项无需再设置，
-                 默认为false，建议设为true
+    *             默认为false，建议设为true
     *  - alwaysStrict: 编译后的文件是否使用严格模式，默认为false
     *  - noImplicitAny: 是否禁止隐式的any类型，默认为true
     *  - noImplicitThis: 是否禁止类型不明确的this，默认为true
@@ -32,7 +32,7 @@
     *  - strictBindCallApply: 是否严格检查bind、call、apply的参数列表，默认为false
     */
     "include": [
-        "./src/**/*"
+        "./src/ts/**/*.ts"
     ],
     "compilerOptions": {
         "target": "ES6",
