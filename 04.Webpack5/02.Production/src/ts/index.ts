@@ -3,3 +3,4 @@ function sum(a: number, b: number): number {
 }
 
 console.log(sum(123,456));
+
