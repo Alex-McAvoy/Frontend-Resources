@@ -14,25 +14,15 @@ const commonCssLoader = [ //复用loader
     MiniCssExtractPlugin.loader, //取代style-loader，提取js中的css成单独文件
     "css-loader", //将css文件整合到js中
     { //css兼容性处理
-        /** 需要在package.json中配置browserslist
-          * "browserslist": {
-          *    "development": [
-          *        "last 1 chrome version",
-          *        "last 1 firefox version",
-          *        "last 1 safari version"
-          *   ],
-          *   "production": [
-          *       ">0.1%",
-          *       "not dead",
-          *       "not op_mini all"
-          *   ]
-          * }
-          */
         "loader": "postcss-loader",
         "options": {
             "postcssOptions": {
                 "plugins": [
-                    "postcss-preset-env"
+                    [
+                        "postcss-preset-env", {
+                            "browsers": "last 2 versions"
+                        }
+                    ]
                 ]
             }
         }
