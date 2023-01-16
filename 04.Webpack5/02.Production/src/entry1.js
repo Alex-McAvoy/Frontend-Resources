@@ -4,10 +4,10 @@
  *  3. 开发环境 webpack ./src/index.js -o ./build --mode=development
  * * */
 
-import './less/test.less';
+import "./less/test.less";
 
-import './font/iconfont.css';
+import "./font/iconfont.css";
 
-import './js/index';
+import "./js/index";
 
-import './ts/index.ts';
+import "./ts/index.ts";
