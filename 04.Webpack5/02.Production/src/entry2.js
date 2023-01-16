@@ -4,6 +4,6 @@
  *  3. 开发环境 webpack ./src/index.js -o ./build --mode=development
  * * */
 
-import './css/a.css';
-import './css/b.css';
-import './css/c.css';
+import "./css/a.css";
+import "./css/b.css";
+import "./css/c.css";
