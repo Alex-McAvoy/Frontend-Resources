@@ -1,59 +1,27 @@
 module.exports = {
-    root: true, //标识当前配置文件为eslint的根配置文件，让其停止在父级目录中继续寻找
-    parserOptions: { //解析器
-        parser: "babel-eslint",
-        sourceType: "module" //指定JS代码来源的类型
+    "root": true, //标识当前配置文件为eslint的根配置文件，让其停止在父级目录中继续寻找
+    "parserOptions": { //解析器
+        "parser": "babel-eslint",
+        "sourceType": "module" //指定JS代码来源的类型
     },
-    env: { //环境
-        browser: true, //浏览器环境
-        node: true, //Node环境
-        es6: true, //ES6环境
+    "env": { //环境
+        "browser": true, //浏览器环境
+        "node": true, //Node环境
+        "es6": true //ES6环境
     },
-    extends: ["plugin:vue/recommended", "eslint:recommended"], //规则继承
-    rules: {
-        "vue/max-attributes-per-line": [2, {
-            "singleline": 4,
-            "multiline": {
-                "max": 1,
-                "allowFirstLine": false
-            }
-        }], //多个特性的元素应该分多行撰写，每个特性一行
-        "vue/html-self-closing": ["error", {
-            "html": {
-                "void": "any",
-                "normal": "any",
-                "component": "any"
-            },
-            "svg": "any",
-            "math": "any"
-        }],
-        "vue/prop-name-casing": ["error", "camelCase"],//prop名大小写：在声明 prop 的时候，其命名应该始终使用 camelCase、
-        "vue/name-property-casing": ["error", "PascalCase"], //JS/JSX 中的组件名应该始终是 PascalCase 的
-        "vue/require-prop-types": "error", //props定义尽量详细
-        "vue/require-v-for-key": "error", //v-for设置键值，与key结合使用
-        "vue/no-use-v-if-with-v-for": ["error", {
-            "allowUsingIterationVar": false
-        }], //不要把 v-if 和 v-for 用在同一个元素上
-        "vue/singleline-html-element-content-newline": "off",
-        "vue/no-parsing-error": [2, { "invalid-first-character-of-tag-name": false }],
-        "vue/multiline-html-element-content-newline": "off",
-        "vue/html-closing-bracket-newline": [0, {
-            "singleline": "never",
-            "multiline": "always"
-        }],
-        "vue/no-side-effects-in-computed-properties": 0,
+    "extends": ["airbnb", "eslint:recommended"], //规则继承
+    "rules": {
         "accessor-pairs": 2, //在对象中使用getter/setter
-        "arrow-spacing": [2, {
+        "arrow-spacing": [2, { //=>的前/后括号
             "before": true,
             "after": true
-        }], //=>的前/后括号
+        }],
+        "quote-props": [2, "always"], //要求对象字面量属性名称使用引号
         "block-spacing": [2, "always"], //块是否需要空格
-        //if while function 后面的{必须与if在同一行，java风格。
-        "brace-style": [2, "1tbs", {
+        "brace-style": [2, "1tbs", { //if/while/function后的{须与if一行，java风格
             "allowSingleLine": true
         }],
-        //强制驼峰法命名
-        "camelcase": [0, {
+        "camelcase": [0, { //强制驼峰法命名
             "properties": "always"
         }],
         //数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，  
@@ -72,16 +40,15 @@ module.exports = {
         //object, "." 号应与对象名在同一行
         "dot-location": [2, "property"],
         "eol-last": 2, //文件末尾强制换行
+        "linebreak-style": ["error", "windows"], //声明是Windows操作系统，换行符为CRLF
         "eqeqeq": [2, "allow-null"], //使用 === 替代 ==
         "generator-star-spacing": 0, //生成器函数*的前后空格
         "handle-callback-err": 0, //nodejs 处理错误
-        "indent": [2, 2, { //缩进风格
+        "indent": [2, 4, { //缩进风格
             "SwitchCase": 1
         }],
-        //JSX 属性中一致使用双引号或单引号
-        "jsx-quotes": [2, "prefer-single"],
-        //对象字面量中冒号的前后空格
-        "key-spacing": [2, {
+        "jsx-quotes": [2, "prefer-double"], //JSX属性中一致使用双引号或单引号
+        "key-spacing": [2, { //对象字面量中冒号的前后空格
             "beforeColon": false,
             "afterColon": true
         }],
@@ -132,9 +99,9 @@ module.exports = {
         "no-mixed-spaces-and-tabs": 2, //禁止混用tab和空格
         "no-multi-spaces": 2, //不能用多余的空格
         "no-multi-str": 2, //字符串不能用\换行
-        "no-multiple-empty-lines": [0, {
+        "no-multiple-empty-lines": [0, { //空行最多不能超过1行
             "max": 1
-        }], //空行最多不能超过1行
+        }], 
         "no-native-reassign": 2, //不能重写native对象
         "no-negated-in-lhs": 2, //in 操作符的左边不能有!
         "no-new-object": 2, //禁止使用new Object()
@@ -165,10 +132,10 @@ module.exports = {
         "no-unneeded-ternary": 0, //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
         "no-unreachable": 2, //不能有无法执行的代码
         "no-unsafe-finally": 0,
-        "no-unused-vars": [2, {
+        "no-unused-vars": [2, { //不能有声明后未被使用的变量或参数
             "vars": "all",
             "args": "none"
-        }], //不能有声明后未被使用的变量或参数
+        }], 
         "no-useless-call": 2, //禁止不必要的call和apply
         "no-useless-computed-key": 0, //没有必要使用带文字的计算属性
         "no-useless-constructor": 2, //可以在不改变类的工作方式的情况下安全地移除的类构造函数
@@ -176,31 +143,31 @@ module.exports = {
         "no-whitespace-before-property": 0,
         "no-with": 2, //禁用with
         "one-var": 0, //连续声明
-        "operator-linebreak": [2, "after", {
+        "operator-linebreak": [2, "after", { //换行时运算符在行尾还是行首
             "overrides": {
                 "?": "before",
                 ":": "before"
             }
-        }], //换行时运算符在行尾还是行首
+        }], 
         "padded-blocks": 0, //块语句内行首行尾是否要空行
-        "quotes": [2, "single", {
+        "quotes": [2, "double", { //引号类型，double/single/backtick，尽可能使用"/'/`
             "avoidEscape": true,
             "allowTemplateLiterals": true
-        }], //引号类型 `` "" "" 尽可能要求使用单引号 允许字符串使用单引号或双引号  允许字符串使用反引号
+        }],
         "semi": ["error", "always"], //强制使用分号结尾
-        "semi-spacing": [2, {
+        "semi-spacing": [2, { //分号前后空格
             "before": false,
             "after": true
-        }], //分号前后空格
+        }], 
         "space-before-blocks": [2, "always"], //不以新行开始的块{前面要不要有空格
         "space-before-function-paren": [2, "never"], //函数定义时括号前面要不要有空格
         "space-in-parens": [2, "never"], //小括号里面要不要有空格
         "space-infix-ops": 2, //中缀操作符周围要不要有空格
-        "space-unary-ops": [2, {
+        "space-unary-ops": [2, { //一元运算符的前/后要不要加空格
             "words": true,
             "nonwords": false
-        }], //一元运算符的前/后要不要加空格
-        "spaced-comment": 0, //注释风格不要有空格什么的
+        }], 
+        "spaced-comment": 0, //注释风格不要有空格
         "template-curly-spacing": [2, "never"],
         "use-isnan": 2, //禁止比较时使用NaN，只能用isNaN()
         "valid-typeof": 2, //必须使用合法的typeof的值
@@ -209,9 +176,9 @@ module.exports = {
         "yoda": [2, "never"], //禁止尤达条件
         "prefer-const": 0, //首选const
         "no-debugger": 0, //禁止使用debugger
-        "object-curly-spacing": [2, "always", {
-            objectsInObjects: false
-        }], //大括号内是否允许不必要的空格
+        "object-curly-spacing": [2, "always", { //大括号内是否允许不必要的空格
+            "objectsInObjects": false
+        }], 
         "array-bracket-spacing": [2, "never"] //是否允许非空数组里面有多余的空格
     }
-}
+};
